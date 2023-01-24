@@ -1,4 +1,4 @@
-const Category = require("../models/categorySchema");
+const Category = require("../modals/categoryModal");
 
 const category = {
   getCategory: async (req, res) => {

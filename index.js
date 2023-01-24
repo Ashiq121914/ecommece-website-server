@@ -24,10 +24,20 @@ mongoose
   .catch((err) => console.log(err));
 
 const userRoute = require("./routes/userRoutes");
-app.use("/user/api", userRoute);
+app.use("/user", userRoute);
 
 const productRoute = require("./routes/productRoutes");
 app.use("/product", productRoute);
+
+const categoryRoute = require("./routes/categoryRoutes");
+app.use("/categories", categoryRoute);
+
+const sliderRoute = require("./routes/sliderRoutes");
+app.use("/slider", sliderRoute);
+
+app.get("/", (req, res) => {
+  res.send("ecommerce website running");
+});
 
 app.listen(3001, () => {
   console.log("server running on port 3001");
