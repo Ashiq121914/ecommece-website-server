@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const port = process.env.PORT || 5000;
 
 const app = express();
 require("dotenv").config();
@@ -24,7 +23,11 @@ mongoose
   .then(() => console.log("Database connected"))
   .catch((err) => console.log(err));
 
-const userRoute = require("./routes/User.router");
+const userRoute = require("./routes/userRoutes");
+app.use("/user/api", userRoute);
+
+const productRoute = require("./routes/productRoutes");
+app.use("/product", productRoute);
 
 app.listen(3001, () => {
   console.log("server running on port 3001");
